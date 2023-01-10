@@ -1,8 +1,11 @@
 
 const pickPokemon= () =>{
-    const id = document.querySelector('[name="fname"]').value
+    const id = document.querySelector('[name="fname"]').value.toLowerCase()
+
+    
 
        fetchPokemon(id) 
+       
 
 }
 
@@ -33,7 +36,6 @@ const fetchPokemon= (id) => {
                 const types = pokemon.types.map(typeInfo => typeInfo.type.name) //o map foi usado para selecionar o tipo do pokemon que estava dentro de outra array e  retorna-lo em string
                 const abilities = pokemon.abilities.map(abilityInfo => abilityInfo.ability.name)
 
-                console.log(pokemon)
                 accumulator+= `
                 <li id="${pokemon.name}" >
 
@@ -57,7 +59,6 @@ const fetchPokemon= (id) => {
                 return accumulator // o acumulator verifica cada pokemon que foi passado pelo parametro, trata como o html acima e concatena, tornando uma grande string de pokemons
                 
             },'') 
-            console.log(lisPokemons)
             const ol = document.querySelector('[data-js="pokedex"]')
             const img = document.querySelector('[data-js="pokeimg"]')
 
